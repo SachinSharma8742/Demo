@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Trading</title>
+    <style>
+    body {
+        background-image: url("cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA3L2pvYjE0NDgtYmFja2dyb3VuZC0wNGEteF8xLmpwZw.jpg.webp");
+        background-size: cover;
+        background-position: center;
+    }
+    h1 {
+        margin: auto;
+        text-align: center;
+        margin-bottom: 25%;
+        background-color: gainsboro;
+        border-radius: 10px;
+        opacity: 0.6;
+        padding: 10px;
+    }
+    .color-input {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .color-input input {
+        align-items: center;
+        padding: 20px;
+        border-radius: 20px;
+        height: 80px;
+        width: 160px;
+        cursor: pointer;
+        margin-right: 10px;
+        color: rgb(255, 255, 255);
+        font-size: medium;
+        font-weight: bold;
+        text-shadow: 2px 2px 2px #000;
+        border: 2px solid rgba(0, 0, 0, 0.269);
+    }
+    a {
+        background-color: rgba(204, 211, 211, 0.3);
+        padding: 10px;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size:x-large;
+        width: 150px;
+        backdrop-filter: blur(10px);
+        box-shadow: 3px 3px 3px black ;
+
+    }
+    </style>
+</head>
+<body>
+    <h1>Choose One Color</h1>
+    <div class="color-input">
+        <input type="button" id="red" name="input" value="RED" style="background-color: red;">
+        <input type="button" id="blue" name="input" value="BLUE" style="background-color: blue;">
+        <input type="button" id="green" name="input" value="GREEN" style="background-color: lawngreen;">
+        <input type="button" id="yellow" name="input" value="YELLOW" style="background-color: yellow;">
+    </div>
+    <a href="result.html" id="result-link" style="display: none;">See Results</a>
+
+    <script>
+        // Get all color input buttons
+        const colorButtons = document.querySelectorAll('.color-input input');
+        const resultLink = document.getElementById('result-link');
+
+        // Add event listener to each button
+        colorButtons.forEach(button => {
+            button.addEventListener('click', handleColorSelect);
+        });
+
+        // Function to handle color selection
+        function handleColorSelect() {
+            // Get the selected color
+            const selectedColor = this.value;
+
+            // Hide all buttons
+            colorButtons.forEach(btn => {
+                btn.style.display = 'none';
+            });
+
+            // Display the "See Results" link
+            resultLink.style.display = 'block';  // or 'block' if you want it as a block-level element
+            resultLink.focus();  // Optional: set focus to the link after showing it
+
+            // Send POST request to /submit
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input: selectedColor })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Data submitted successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting data.');
+            });
+        }
+    </script>
+</body>
+</html>
