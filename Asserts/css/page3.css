@@ -7,7 +7,7 @@
             position: relative;
         }
 
-        .container {
+        .container3 {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
@@ -204,7 +204,7 @@
             flex: 1;
         }
 
-        .stat-number {
+        .stat-number3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 20px;
             font-weight: 600;
@@ -213,7 +213,7 @@
             margin-bottom: 4px;
         }
 
-        .stat-label {
+        .stat-label3 {
             font-size: 14px;
             color: #6B6B6B;
             font-weight: 400;
