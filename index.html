@@ -1,267 +1,831 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aegis - Real-Time Safety & Monitoring System</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saarthi - Secure Academic Authentication</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="./public/styles.css" />
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #e2e8f0;
+      /* Demo box improvements */
+      .demo-box {
+        margin-bottom: 2.5rem; /* Add bottom margin for spacing */
+        width: 100%;
+        max-width: 700px; /* Match hero-cards width */
+        min-height: 110px; /* Increase height for better presence */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (min-width: 768px) {
+        .demo-box {
+          min-height: 140px;
+          font-size: 1.35rem;
         }
-        .hero-bg {
-            background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 1)), url('https://placehold.co/1920x1080/0a0a0a/1f2937?text=');
-            background-size: cover;
-            background-position: center;
-        }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
-        }
-        .cta-button {
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
+      }
+      .hero-cards {
+        margin-top: 0 !important; /* Remove extra gap if any */
+      }
+
+      /* CTA Section Improvements */
+      .cta .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+      
+      .cta-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      .cta .section-description {
+        margin-bottom: 3rem;
+        font-size: 1.2rem;
+        line-height: 1.6;
+      }
+      
+      .cta-buttons {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .cta-buttons .btn {
+        min-width: 200px;
+      }
     </style>
-</head>
-<body class="antialiased">
-
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold text-white">
-                    <span class="text-blue-400">.</span>
-                </a>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-slate-300 hover:text-blue-400 transition-colors">Features</a>
-                    <a href="#authorities" class="text-slate-300 hover:text-blue-400 transition-colors">For Authorities</a>
-                    <a href="#tourists" class="text-slate-300 hover:text-blue-400 transition-colors">For Tourists</a>
-                    <a href="#contact" class="text-slate-300 hover:text-blue-400 transition-colors">Contact</a>
-                </nav>
-                <a href="#login" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors cta-button">Login</a>
-            </div>
+  </head>
+  <body>
+    <nav class="navbar section-animate">
+      <div class="container nav-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="logo-text">
+            <h1>Saarthi</h1>
+            <p>Team Saarthi_02</p>
+          </div>
         </div>
-    </header>
+        <button class="contact-btn" onclick="window.open('https://wa.me/9079982271','_blank')">Contact Us</button>
+      </div>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-bg min-h-screen flex items-center pt-20">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
-                    Navigating a Safer World, <br class="hidden md:block"> Together.
-                </h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-                    A real-time safety and monitoring system connecting authorities and tourists through an immersive, map-based interface for enhanced security and exploration.
-                </p>
-                <div class="flex justify-center items-center space-x-4">
-                    <a href="#authorities" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">
-                        Authority Dashboard
-                    </a>
-                    <a href="#tourists" class="bg-slate-700 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-slate-600 cta-button">
-                        Tourist Explorer
-                    </a>
-                </div>
-            </div>
-        </section>
+    <section class="hero section-animate">
+      <div class="floating-particles"></div>
+      <div class="container">
+        <div class="badge">Smart India Hackathon 2025 | Problem ID: SIH25029</div>
 
-        <!-- Features Overview -->
-        <section id="features" class="py-20 bg-gray-900/50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-white mb-2">Platform Highlights</h2>
-                <p class="text-slate-400 mb-12">Core features that power the Aegis ecosystem.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="glass-effect p-8 rounded-2xl text-left feature-card transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-blue-400 mb-4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <h3 class="text-xl font-bold text-white mb-2">Role-Based Access</h3>
-                        <p class="text-slate-400">Separate, secure dashboards for authorities and a unified, intuitive panel for tourists, ensuring clarity and purpose.</p>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div class="glass-effect p-8 rounded-2xl text-left feature-card transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-blue-400 mb-4"><path d="m21.3 12.7-9-9a2 2 0 0 0-2.8 0l-9 9a2 2 0 0 0 0 2.8l9 9a2 2 0 0 0 2.8 0l9-9a2 2 0 0 0 0-2.8Z"></path><path d="m12 15-3-3"></path></svg>
-                        <h3 class="text-xl font-bold text-white mb-2">Dynamic Zone Management</h3>
-                        <p class="text-slate-400">Authorities can create, update, and manage geographic zones (popular, unsafe, restricted) in real-time.</p>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div class="glass-effect p-8 rounded-2xl text-left feature-card transition-transform">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-blue-400 mb-4"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
-                        <h3 class="text-xl font-bold text-white mb-2">Immersive 3D Globe</h3>
-                        <p class="text-slate-400">Tourists can explore the world on a 3D globe that seamlessly transitions to a detailed 2D map for zone-specific awareness.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h1 class="hero-title">
+          <span class="gradient-text">Turning Education into</span>
+          <br />
+          <span class="gradient-key">Verified Proof</span>
+          <span>, Not Just Paper</span>
+        </h1>
 
-        <!-- For Authorities -->
-        <section id="authorities" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="lg:w-1/2">
-                        <span class="text-blue-400 font-semibold">FOR AUTHORITIES</span>
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mt-2 mb-4">Command and Control with Clarity</h2>
-                        <p class="text-slate-400 mb-8">
-                            A dedicated dashboard empowers authorities to manage safety protocols efficiently. Monitor activity, define zones, and receive critical alerts, all from one central hub.
-                        </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">Manage Zones</h4>
-                                    <p class="text-slate-400">Easily draw and label zones as popular, restricted, or unsafe on the map.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">Monitor Tourist Activity</h4>
-                                    <p class="text-slate-400">View real-time locations and app connection status of tourists within your jurisdiction.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">Breach Alerts</h4>
-                                    <p class="text-slate-400">Receive instant notifications when a tourist enters a restricted or unsafe zone.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="lg:w-1/2">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <img src="/Asserts/image copy 2.png" alt="Authority Dashboard Analytics" class="rounded-xl shadow-lg hover:shadow-blue-500/20 transition-shadow duration-300 w-full object-cover h-64">
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <p class="hero-subtitle">
+          AI + Blockchain powered authenticity validator for academia.
+          <br />
+          Detect forgery and tampering in academic documents in real time.
+        </p>
 
-        <!-- For Tourists -->
-        <section id="tourists" class="py-20 bg-gray-900/50">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
-                    <div class="lg:w-1/2">
-                        <span class="text-blue-400 font-semibold">FOR TOURISTS</span>
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mt-2 mb-4">Explore with Confidence</h2>
-                        <p class="text-slate-400 mb-8">
-                           Our unified panel provides an intuitive and immersive way to navigate new places. Stay aware of your surroundings with clear visual cues on our interactive 3D globe and 2D map.
-                        </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">3D Globe to 2D Map</h4>
-                                    <p class="text-slate-400">Start with a stunning 3D world view and seamlessly zoom into a detailed 2D map.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">Visual Zone Awareness</h4>
-                                    <p class="text-slate-400">Clearly see popular, unsafe, and restricted zones created by authorities on your map.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                     <h4 class="font-semibold text-white">Unified Interface</h4>
-                                     <p class="text-slate-400">Access search, profile, and connectivity status all within one seamless and easy-to-use panel.</p>
-                                 </div>
-                             </li>
-                         </ul>
-                         <div class="mt-8 flex flex-col sm:flex-row items-center gap-4">
-                            <a href="#" class="bg-slate-700 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-slate-600 cta-button inline-flex items-center space-x-2 w-full sm:w-auto justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg>
-                                <span>Launch Web Portal</span>
-                            </a>
-                            <a href="https://drive.google.com/file/d/16isHXprEVrlWhYfGwn5pMgIykxz0ZVSF/view?usp=sharing" download class="bg-green-600 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-green-700 cta-button inline-flex items-center space-x-2 w-full sm:w-auto justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                <span>Download APK</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                           <img src="./Asserts/image copy.png" alt="Tourist 2D Map View" class="rounded-xl shadow-lg hover:shadow-blue-500/20 transition-shadow duration-300 w-full object-cover h-64">
-                           <img src="./Asserts/image.png" alt="Tourist 3D Globe Explorer" class="rounded-xl shadow-lg hover:shadow-blue-500/20 transition-shadow duration-300 w-full object-cover h-64 sm:mt-8">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Mobile App Section -->
-        <section id="mobile-app" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-white mb-2">Safety in Your Pocket</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto mb-12">
-                    Our dedicated mobile app provides on-the-go access to real-time zone information, ensuring you're always aware and safe during your travels.
-                </p>
-                <div class="flex justify-center gap-8">
-                    <div class="w-1/3 max-w-xs">
-                        <img src="./image.jpeg" alt="Mobile App Screenshot 1" class="rounded-2xl shadow-2xl hover:shadow-green-500/20 transition-shadow duration-300">
-                    </div>
-                    <div class="w-1/3 max-w-xs mt-12">
-                         <img src="./image copy.jpeg" alt="Mobile App Screenshot 2" class="rounded-2xl shadow-2xl hover:shadow-green-500/20 transition-shadow duration-300">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact/Login Section (placeholder) -->
-        <section id="login" class="py-20 bg-gray-900/50">
-            <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
-                 <p class="text-slate-400 max-w-2xl mx-auto mb-8">
-                     Whether you are an authority looking to enhance public safety or a tourist seeking a smarter way to travel, Aegis is your solution.
-                 </p>
-                 <a href="#" class="bg-green-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-green-700 cta-button">
-                     Request a Demo
-                 </a>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer id="contact" class="bg-gray-900/50 border-t border-slate-800">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                <p class="text-slate-400">&copy; 2025 Aegis. All Rights Reserved. | <a href="https://www.aegis-sih.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">www.aegis-sih.com</a></p>
-                <div class="flex mt-4 md:mt-0 space-x-6">
-                    <a href="#" class="text-slate-400 hover:text-white">Privacy Policy</a>
-                    <a href="#" class="text-slate-400 hover:text-white">Terms of Service</a>
-                    <a href="#" class="text-slate-400 hover:text-white">Contact Us</a>
-                </div>
-            </div>
+        <div class="hero-buttons">
+          <button class="btn btn-primary glow" onclick="showComingSoon()">
+            Try Demo
+            <i class="fas fa-bolt"></i>
+          </button>
+          <button class="btn btn-outline" onclick="showComingSoon()">
+            <i class="fab fa-github"></i>
+            View GitHub
+          </button>
         </div>
+        <!-- Interactive Demo Box (fixed markup for UI) -->
+        <div class="demo-box" id="demoBox">
+          <div class="demo-upload">
+            <div class="demo-upload-icon gradient-blue"><i class="fas fa-file-upload"></i></div>
+            <span class="demo-upload-text">Upload Certificate.pdf</span>
+          </div>
+          <div class="demo-status verifying" id="demoStatus">
+            Verifying…
+          </div>
+        </div>
+
+        <div class="hero-cards">
+          <div class="hero-card fade-in">
+            <div class="hero-card-icon gradient-purple">
+              <i class="fas fa-brain"></i>
+            </div>
+            <p>AI Forgery Detection</p>
+          </div>
+          <div class="hero-card fade-in" style="animation-delay: 0.1s;">
+            <div class="hero-card-icon gradient-blue">
+              <i class="fas fa-lock"></i>
+            </div>
+            <p>Blockchain-backed</p>
+          </div>
+          <div class="hero-card fade-in" style="animation-delay: 0.2s;">
+            <div class="hero-card-icon gradient-yellow">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <p>Instant Verification</p>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom wave of the first section -->
+      <div class="wave-divider-bottom">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Next section with top wave -->
+    <section class="about section-animate">
+      <div class="wave-divider-top">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <h2 class="section-title gradient-text">Making Education Tamper-Proof</h2>
+            <p class="section-description">
+              Saarthi uses AI-powered forgery detection, OCR extraction, and blockchain verification to authenticate certificates instantly and securely.
+            </p>
+            <div class="check-list">
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Real-time tampering detection</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Privacy-first architecture</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Cross-institution compatibility</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Scalable verification system</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-visual">
+            <div class="visual-card">
+              <div class="visual-item gradient-cyan">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                  <h4>Document Scan</h4>
+                  <p>AI-powered analysis</p>
+                </div>
+              </div>
+              <div class="visual-item gradient-blue">
+                <i class="fas fa-database"></i>
+                <div>
+                  <h4>Data Verification</h4>
+                  <p>OCR + matching</p>
+                </div>
+              </div>
+              <div class="visual-item gradient-purple">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                  <h4>Blockchain Validation</h4>
+                  <p>Immutable records</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <div class="wave-divider-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+    </svg>
+</div>
+
+    <section class="features section-animate">
+      <div class="container">
+        <h2 class="section-title center gradient-text">Core Features</h2>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon gradient-cyan">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>AI-powered Forgery Detection</h3>
+            <p>Flags tampered grades, photos, and seals using advanced machine learning</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon gradient-blue">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>OCR + Database Matching</h3>
+            <p>Extracts and verifies data in seconds with high accuracy</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon gradient-purple">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3>Institution Integration</h3>
+            <p>Bulk or real-time upload for seamless adoption</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon gradient-pink">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Blockchain-backed Validation</h3>
+            <p>Immutable record authenticity with distributed ledger</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon gradient-orange">
+              <i class="fas fa-file-signature"></i>
+            </div>
+            <h3>Metadata + Signature Validation</h3>
+            <p>Legacy and modern document format support</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon gradient-yellow">
+              <i class="fas fa-bell"></i>
+            </div>
+            <h3>Admin Dashboard + Alerts</h3>
+            <p>Monitors, flags, and reports fraud in real-time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="angle-divider"></div>
+
+    <section class="workflow section-animate">
+      <div class="container">
+        <h2 class="section-title center gradient-text">How It Works</h2>
+        <p class="section-subtitle">Six-step verification process in under 5 seconds</p>
+
+        <div class="workflow-grid">
+          <div class="workflow-step">
+            <div class="step-icon">
+              <i class="fas fa-upload"></i>
+            </div>
+            <div class="step-number">01</div>
+            <h3>Upload Certificate</h3>
+            <p>Image or PDF format</p>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="step-number">02</div>
+            <h3>OCR Extraction</h3>
+            <p>Extract all data fields</p>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="step-number">03</div>
+            <h3>AI Analysis</h3>
+            <p>Flag tampering signs</p>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="step-number">04</div>
+            <h3>Blockchain Verify</h3>
+            <p>Validate hash records</p>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="step-number">05</div>
+            <h3>Generate Report</h3>
+            <p>Comprehensive analysis</p>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <div class="step-number">06</div>
+            <h3>Instant Alerts</h3>
+            <p>Notify stakeholders</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider-bottom">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path fill="#F0F9FF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"/>
+      </svg>
+    </div>
+
+    <section class="tech-stack section-animate">
+      <div class="container">
+        <h2 class="section-title center gradient-text">Technology Stack</h2>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <h4>React.js</h4>
+            <p>Frontend</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <h4>Tailwind CSS</h4>
+            <p>Styling</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <h4>Node.js</h4>
+            <p>Backend</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h4>Express.js</h4>
+            <p>API</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h4>TensorFlow</h4>
+            <p>AI/ML</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h4>OpenCV</h4>
+            <p>Vision</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-ethereum"></i>
+            </div>
+            <h4>Ethereum</h4>
+            <p>Blockchain</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-link"></i>
+            </div>
+            <h4>Hyperledger</h4>
+            <p>Enterprise</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h4>MongoDB</h4>
+            <p>Database</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-aws"></i>
+            </div>
+            <h4>AWS</h4>
+            <p>Cloud</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <h4>Firebase</h4>
+            <p>Services</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-docker"></i>
+            </div>
+            <h4>Docker</h4>
+            <p>DevOps</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <div class="wave-divider-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FFFFFF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+    </svg>
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FFFFFF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+    </svg>
+</div>
+
+    <section class="impact section-animate">
+      <div class="container">
+        <h2 class="section-title center gradient-text">Impact & Benefits</h2>
+        <p class="section-subtitle">Verified Credentials. Safer Futures.</p>
+
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-icon gradient-cyan">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="impact-value" data-target="95">0</div>
+            <h4>Forgery Detection Accuracy</h4>
+            <p>IEEE 2023</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon gradient-blue">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="impact-value">&lt;5s</div>
+            <h4>Instant Verification</h4>
+            <p>Average Processing Time</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon gradient-purple">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="impact-value" data-target="100">0</div>
+            <h4>Cross-Board Support</h4>
+            <p>Multi-State Compatible</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon gradient-pink">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="impact-value">10M+</div>
+            <h4>Students Protected</h4>
+            <p>Projected Impact</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon gradient-orange">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="impact-value">100%</div>
+            <h4>Privacy Protection</h4>
+            <p>Data Never Exposed</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon gradient-yellow">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="impact-value">99.9%</div>
+            <h4>Trust Score</h4>
+            <p>Institutional Confidence</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <div class="wave-divider-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FFFFFF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+    </svg>
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FFFFFF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+    </svg>
+</div>
+
+    <section class="feasibility section-animate">
+      <div class="container">
+        <h2 class="section-title center gradient-text">Feasibility & Viability</h2>
+        <p class="section-subtitle">Secure. Scalable. Ready to Grow.</p>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="tab-feasibility" id="tab-btn-feasibility">Feasibility</button>
+          <button class="tab-btn" data-tab="tab-viability" id="tab-btn-viability">Viability</button>
+          <button class="tab-btn" data-tab="tab-challenges" id="tab-btn-challenges">Challenges</button>
+          <button class="tab-btn" data-tab="tab-strategies" id="tab-btn-strategies">Strategies</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-panel active" id="tab-feasibility">
+            <h3>Technical Feasibility</h3>
+            <div class="check-list">
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Proven AI/ML models for document forgery detection</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Established blockchain frameworks (Ethereum, Hyperledger)</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Cloud-ready architecture with AWS/Firebase integration</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Compatible with existing academic systems and formats</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-viability">
+            <h3>Business Viability</h3>
+            <div class="check-list">
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Scalable SaaS model with institutional subscriptions</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Cost-effective per-verification pricing structure</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Addresses real-world ₹500Cr+ annual fraud problem</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Strong market demand from educational institutions</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Government backing through Smart India Hackathon</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-challenges">
+            <h3>Key Challenges</h3>
+            <div class="check-list">
+              <div class="check-item challenge">
+                <i class="fas fa-circle"></i>
+                <span>Data privacy concerns with sensitive academic records</span>
+              </div>
+              <div class="check-item challenge">
+                <i class="fas fa-circle"></i>
+                <span>Varied certificate formats across institutions</span>
+              </div>
+              <div class="check-item challenge">
+                <i class="fas fa-circle"></i>
+                <span>Onboarding resistance from traditional institutions</span>
+              </div>
+              <div class="check-item challenge">
+                <i class="fas fa-circle"></i>
+                <span>Initial blockchain integration complexity</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-strategies">
+            <h3>Solution Strategies</h3>
+            <div class="check-list">
+              <div class="check-item">
+                <i class="fas fa-bolt"></i>
+                <span>End-to-end encryption with zero-knowledge proofs</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-bolt"></i>
+                <span>Modular OCR templates for format adaptability</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-bolt"></i>
+                <span>Pilot programs with progressive institutions</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-bolt"></i>
+                <span>Simplified blockchain abstraction layer</span>
+              </div>
+              <div class="check-item">
+                <i class="fas fa-bolt"></i>
+                <span>Comprehensive training and support programs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider-bottom">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path fill="#F0F9FF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"/>
+      </svg>
+    </div>
+
+    <section class="research section-animate">
+      <div class="container">
+        <h2 class="section-title center gradient-text">Research & References</h2>
+        <p class="section-subtitle">The Numbers Don't Lie — But Degrees Do</p>
+
+        <div class="research-list">
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="research-content">
+              <h4>UGC Fake Universities List</h4>
+              <p class="research-source">University Grants Commission, 2025</p>
+              <p>24 fake universities identified across India</p>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="research-content">
+              <h4>IEEE Blockchain Verification Impact</h4>
+              <p class="research-source">IEEE Conference Paper, 2023</p>
+              <p>95% accuracy in tamper detection using blockchain</p>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="research-content">
+              <h4>Times of India & NDTV Fake Degree Raids</h4>
+              <p class="research-source">National Media Reports, 2024</p>
+              <p>Multiple high-profile fake degree scams exposed</p>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="research-content">
+              <h4>Heinrich Böll Foundation Study</h4>
+              <p class="research-source">Socioeconomic Impact Research</p>
+              <p>Educational fraud impacts ₹500Cr+ annually</p>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="research-content">
+              <h4>W3C Verifiable Credentials Standards</h4>
+              <p class="research-source">World Wide Web Consortium, 2023</p>
+              <p>Global framework for digital credential verification</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="angle-divider"></div>
+
+    <section class="team section-animate">
+      <div class="container">
+        <h2 class="section-title center gradient-text">Meet Our Team</h2>
+        <div class="team-header">
+          <h3>Team Saarthi_02</h3>
+          <p>Smart India Hackathon 2025 | Smart Education Theme</p>
+        </div>
+
+        <div class="team-list">
+          <div class="team-member">
+            <div class="team-member-avatar">
+              <i class="fas fa-crown"></i>
+            </div>
+            <div class="team-member-info">
+              <h3 class="team-member-name">Sachin Sharma</h3>
+              <div class="team-member-role">Team Leader</div>
+              <p class="team-member-description">
+                Full Stack Developer & AI Enthusiast. Leading the vision and technical architecture of Saarthi.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="team-member-avatar">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="team-member-info">
+              <h3 class="team-member-name">Abhishek</h3>
+              <div class="team-member-role">Backend Developer</div>
+              <p class="team-member-description">
+                Backend specialist focusing on blockchain integration and secure authentication systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="team-member-avatar">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="team-member-info">
+              <h3 class="team-member-name">Satyam</h3>
+              <div class="team-member-role">Frontend Developer</div>
+              <p class="team-member-description">
+                UI/UX specialist crafting seamless and intuitive user experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <div class="wave-divider-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FFFFFF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+    </svg>
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FFFFFF" d="M0,0 C400,80 1040,0 1440,80 L1440,80 L0,80 Z"></path>
+    </svg>
+</div>
+
+    <section class="cta section-animate">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="section-title gradient-text">Ready to Verify Smarter?</h2>
+          <p class="section-description">
+            Join the revolution in academic credential verification.
+            <br class="desktop-only">
+            Trust faster. Secure better. Scale effortlessly.
+          </p>
+          
+          <div class="cta-buttons">
+            <button class="btn btn-primary glow" onclick="window.open('https://drive.google.com/file/d/1l1bcPxM9eNdkvZHwr2A8ygZqFZ0adnxu/view?usp=sharing','_blank')">
+              <i class="fas fa-play"></i>
+              Watch Presentation
+            </button>
+            <button class="btn btn-outline" onclick="window.open('mailto:Sachinsthug@gmail.com')">
+              <i class="fas fa-envelope"></i>
+              Contact Team
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-glow"></div>
+      <div class="container">
+        <div class="footer-divider"></div>
+        <div class="footer-content">
+          <p>Made for <strong>Smart India Hackathon 2025</strong></p>
+          <p><strong>Team Saarthi_02</strong> | Problem ID: SIH25029 | Smart Education Theme</p>
+          <p class="footer-subtitle">Secure Academic Authentication & Real-Time Tampering Heuristic Interface</p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+      function showComingSoon() {
+        alert("🐣 Working on it, coming soon!");
+      }
+
+      // Demo animation
+      window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          document.getElementById('demoStatus').classList.remove('verifying');
+          document.getElementById('demoStatus').classList.add('verified');
+          document.getElementById('demoStatus').textContent = '✅ Verified';
+        }, 2200);
+      });
     </script>
-
-</body>
+    <script src="./public/script.js"></script>
+  </body>
 </html>
-
+    <script src="./public/script.js"></script>
+  </body>
+</html>
